@@ -1,0 +1,156 @@
+// Mixins
+@mixin transition($property: all) {
+  -webkit-transition: $property $animation-speed;
+  -moz-transition: $property $animation-speed;
+  -ms-transition: $property $animation-speed;
+  -o-transition: $property $animation-speed;
+  transition: $property $animation-speed;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  -o-transform: $property;
+  transform: $property;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition-transform($property: all) {
+  -webkit-transition: -webkit-transform $animation-speed;
+  -moz-transition: -moz-transform $animation-speed;
+  -ms-transition: -ms-transform $animation-speed;
+  -o-transition: -o-transform $animation-speed;
+  transition: transform $animation-speed;
+}
+
+@mixin transition-opacity($property: all) {
+  -webkit-transition: opacity $animation-speed;
+  -moz-transition: opacity $animation-speed;
+  -ms-transition: opacity $animation-speed;
+  -o-transition: opacity $animation-speed;
+  transition: opacity $animation-speed;
+}
+
+@mixin transition-color($property: all) {
+  -webkit-transition: color $animation-speed;
+  -moz-transition: color $animation-speed;
+  -ms-transition: color $animation-speed;
+  -o-transition: color $animation-speed;
+  transition: color $animation-speed;
+}
+
+@mixin transition-background-color($property: all) {
+  -webkit-transition: background-color $animation-speed;
+  -moz-transition: background-color $animation-speed;
+  -ms-transition: background-color $animation-speed;
+  -o-transition: background-color $animation-speed;
+  transition: background-color $animation-speed;
+}
+
+@mixin transition-border($property: all) {
+  -webkit-transition: border $animation-speed;
+  -moz-transition: border $animation-speed;
+  -ms-transition: border $animation-speed;
+  -o-transition: border $animation-speed;
+  transition: border $animation-speed;
+}
+
+@mixin transition-box-shadow($property: all) {
+  -webkit-transition: box-shadow $animation-speed;
+  -moz-transition: box-shadow $animation-speed;
+  -ms-transition: box-shadow $animation-speed;
+  -o-transition: box-shadow $animation-speed;
+  transition: box-shadow $animation-speed;
+}
+
+@mixin transition-width($property: all) {
+  -webkit-transition: width $animation-speed;
+  -moz-transition: width $animation-speed;
+  -ms-transition: width $animation-speed;
+  -o-transition: width $animation-speed;
+  transition: width $animation-speed;
+}
+
+@mixin transition-height($property: all) {
+  -webkit-transition: height $animation-speed;
+  -moz-transition: height $animation-speed;
+  -ms-transition: height $animation-speed;
+  -o-transition: height $animation-speed;
+  transition: height $animation-speed;
+}
+
+@mixin transition-margin($property: all) {
+  -webkit-transition: margin $animation-speed;
+  -moz-transition: margin $animation-speed;
+  -ms-transition: margin $animation-speed;
+  -o-transition: margin $animation-speed;
+  transition: margin $animation-speed;
+}
+
+@mixin transition-padding($property: all) {
+  -webkit-transition: padding $animation-speed;
+  -moz-transition: padding $animation-speed;
+  -ms-transition: padding $animation-speed;
+  -o-transition: padding $animation-speed;
+  transition: padding $animation-speed;
+}
+
+@mixin transition-top($property: all) {
+  -webkit-transition: top $animation-speed;
+  -moz-transition: top $animation-speed;
+  -ms-transition: top $animation-speed;
+  -o-transition: top $animation-speed;
+  transition: top $animation-speed;
+}
+
+@mixin transition-left($property: all) {
+  -webkit-transition: left $animation-speed;
+  -moz-transition: left $animation-speed;
+  -ms-transition: left $animation-speed;
+  -o-transition: left $animation-speed;
+  transition: left $animation-speed;
+}
+
+@mixin transition-right($property: all) {
+  -webkit-transition: right $animation-speed;
+  -moz-transition: right $animation-speed;
+  -ms-transition: right $animation-speed;
+  -o-transition: right $animation-speed;
+  transition: right $animation-speed;
+}
+
+@mixin transition-bottom($property: all) {
+  -webkit-transition: bottom $animation-speed;
+  -moz-transition: bottom $animation-speed;
+  -ms-transition: bottom $animation-speed;
+  -o-transition: bottom $animation-speed;
+  transition: bottom $animation-speed;
+}
+
+@mixin transition-font-size($property: all) {
+  -webkit-transition: font-size $animation-speed;
+  -moz-transition: font-size $animation-speed;
+  -ms-transition: font-size $animation-speed;
+  -o-transition: font-size $animation-speed;
+  transition: font-size $animation-speed;
+}
+
+@mixin transition-line-height($property: all) {
+  -webkit-transition: line-height $animation-speed;
+  -moz-transition: line-height $animation-speed;
+  -ms-transition: line-height $animation-speed;
+  -o-transition: line-height $animation-speed;
+  transition: line-height $animation-speed;
+}

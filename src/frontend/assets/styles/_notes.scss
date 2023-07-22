@@ -1,0 +1,116 @@
+@import "./vel-brand-color-palette";
+
+.note {
+  // Layout
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  // Format
+  // Style
+  border: 2px solid #3097b9;
+}
+
+.note__header {
+  // Layout
+  margin-bottom: 0.5rem;
+  // Format
+  // Style
+}
+
+.note__body {
+  // Layout
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  // Format
+  // Style
+}
+
+.note__cues-title,
+.note__notes-title,
+.note__summary-title {
+  // Layout
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.25rem;
+  // Format
+  text-align: center;
+  // Style
+  border-bottom: 1px solid #3097b9;
+}
+
+.note__cues,
+.note__notes {
+  // Layout
+  // Format
+  // Style
+  border-right: 1px solid #3097b9;
+}
+
+.note__cues,
+.note__notes,
+.note__summary {
+  // Layout
+  padding: 0 0.5rem;
+  // Format
+  word-break: break-word;
+  // Style
+}
+
+.note__title {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__author {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__cues {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__cues-title {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__cues-text {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__notes-title {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__notes-text {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__summary {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__summary-title {
+  // Layout
+  // Format
+  // Style
+}
+
+.note__summary-text {
+  // Layout
+  // Format
+  // Style
+}

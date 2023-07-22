@@ -1,0 +1,237 @@
+@import "./notes", "./reset", "./vel-brand-color-palette", "./mixins",
+  "./variables";
+
+%form-field {
+  // Layout
+  min-height: 1.25rem;
+  padding: 0.5rem 0.8rem;
+  // Format
+  font-size: $font-size;
+  // Style
+  outline: none;
+  transition: border $animation-speed ease-out;
+
+  &:not(.post-button):focus {
+    // Layout
+    z-index: 10;
+    // Style
+    border: 2px solid $vel-orange;
+  }
+}
+
+%container {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  // Format
+  // Style
+}
+
+html,
+body {
+  // Format
+  font-size: $font-size;
+}
+
+body,
+body * {
+  // Format
+  font-family: roboto, sans-serif;
+  font-weight: $font-weight;
+  // Style
+  color: $vel-blue;
+  background-color: $dark;
+}
+
+label {
+  // Layout
+  margin-bottom: 0.5rem;
+}
+
+.toggle-sidebar {
+  // Layout
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  // Format
+  font-size: $font-size;
+  // Style
+  border: 2px solid $vel-orange;
+  border-radius: 0.25rem;
+  background-color: $vel-blue;
+  cursor: pointer;
+  transition: all $animation-speed ease-out;
+  box-shadow: $drop-shadow-medium;
+
+  &:hover,
+  &.toggled {
+    border: 2px solid $vel-orange;
+    border-radius: 50%;
+    background-color: $vel-light-blue;
+  }
+}
+
+.layout {
+  // Layout
+  display: flex;
+  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar,
+.note-area {
+  // Layout
+  padding: 1rem;
+  height: calc(100vh - 2rem);
+  // Style
+  overflow-y: auto;
+}
+
+.sidebar {
+  // Layout
+  width: $sidebar-width;
+  padding-top: calc(2rem + 4px);
+  // Style
+  border-right: 3px solid $vel-blue;
+  transition: $animation-speed ease-out;
+
+  &.collapsed {
+    // Layout
+    width: 0;
+    padding: 0;
+    // Style
+    border-right: none;
+    overflow: hidden;
+  }
+}
+
+.note-area {
+  // Layout
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.note-form {
+  // Layout
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 25rem;
+  // Style
+  border: 3px solid $vel-blue;
+
+  &,
+  & > * {
+    border-radius: 0.325rem;
+  }
+}
+
+.note-form,
+.note-content {
+  & > *:not(:last-child):not(label) {
+    // Layout
+    margin-bottom: 1rem;
+  }
+}
+
+.note-content {
+  // Layout
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cues-container {
+  // Layout
+  grid-column: span 1;
+  @extend %container;
+}
+
+.notes-container {
+  // Layout
+  grid-column: span 2;
+  @extend %container;
+}
+
+.summary-container {
+  // Layout
+  grid-column: span 3;
+  @extend %container;
+}
+
+.summary-container,
+.summary {
+  // Layout
+  min-height: 1.5rem;
+}
+
+.note-title,
+.note-author,
+.cues,
+.notes,
+.summary,
+.post-button {
+  // Style
+  border: 2px solid $vel-blue;
+}
+
+.note-title,
+.note-author {
+  @extend %form-field;
+}
+
+.cues,
+.notes,
+.summary {
+  // Layout
+  flex-grow: 1;
+  // Style
+  resize: vertical;
+  @extend %form-field;
+}
+
+.post-button {
+  // Layout
+  align-self: center;
+  @extend %form-field;
+  // Format
+  font-weight: 600;
+  // Style
+  color: $light;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-color: $vel-blue;
+  transition: all $animation-speed ease-out;
+
+  &:hover {
+    // Style
+    background-color: $vel-light-blue;
+  }
+}
+
+/* This is for Chrome, Safari */
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-light; /* Color of the scroll thumb when hovering */
+}
+
+::-webkit-scrollbar-thumb {
+  background: $dark-heavy; /* Color of the track */
+  border-radius: 20px; /* Roundness of the scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $vel-orange; /* Color of the scroll thumb */
+}

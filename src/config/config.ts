@@ -5,14 +5,14 @@ dotenv.config();
 module.exports = {
   development: {
     dialect: "sqlite",
-    storage: "./db.development.sqlite",
+    storage: "../backend/database/db.sqlite",
   },
   test: {
     dialect: "sqlite",
-    storage: ":memory:",
+    storage: "../backend/database/db.sqlite",
   },
   production: {
     dialect: "sqlite",
-    storage: "./db.production.sqlite",
+    storage: "../backend/database/db.sqlite",
   },
 };

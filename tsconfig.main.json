@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist/main"
+  },
+  "include": [
+    "src/main.ts",
+    "src/preload.ts",
+    "src/types.d.ts",
+    "src/backend/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

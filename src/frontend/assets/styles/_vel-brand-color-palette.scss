@@ -1,0 +1,34 @@
+/*======= Brand Color Palette =======*/
+
+// Main
+$vel-blue: #3097b9;
+$vellow: #dae25e;
+
+// Complementary
+$vel-dark-blue: #1d6580;
+$vel-light-blue: #72b4cd;
+$vellow-dark: #b3a344;
+$vellow-light: #e6e89b;
+$vel-orange: #f9a825;
+
+// Neutral
+$dark-heavy: #212121;
+$dark: #263238;
+$dark-medium: #37474f;
+$dark-light: #455a64;
+$light: #f8f8f8;
+$grey-bg: #f1f4f5;
+
+/*======= Box Shadows and stroke =======*/
+$basic-stroke: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+  rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+$heavy-stroke: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+  rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+  rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+$drop-shadow-light: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+$drop-shadow-medium: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+$drop-shadow-heavy: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+  rgba(0, 0, 0, 0.23) 0px 3px 6px;

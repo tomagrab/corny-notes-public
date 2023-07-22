@@ -2,21 +2,70 @@
   "name": "cornell-notes",
   "version": "1.0.0",
   "description": "A note taking app in the style of Cornell",
-  "main": "main.js",
+  "main": "./dist/main/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-main": "tsc --project tsconfig.main.json",
+    "build-renderer": "webpack",
+    "build-config": "tsc --project tsconfig.config.json",
+    "build": "npm run build-main && npm run build-renderer && npm run build-config",
+    "start": "electron ./dist/main/main.js",
+    "watch-main": "nodemon --watch src/backend --exec \"npm run build-main && npm start\"",
+    "watch-renderer": "webpack --watch",
+    "watch": "npm run build && concurrently \"npm:watch-*\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "author": "Tommy Grabowski",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.4.4",
+    "concurrently": "^8.2.0",
+    "css-loader": "^6.8.1",
     "electron": "^25.3.1",
-    "sequelize-cli": "^6.6.1"
+    "electron-builder": "^24.4.0",
+    "electron-reloader": "^1.2.3",
+    "html-webpack-plugin": "^5.5.3",
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.0.1",
+    "sass-loader": "^13.3.2",
+    "sequelize-cli": "^6.6.1",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
+    "mssql": "^9.1.1",
     "sequelize": "^6.32.1",
     "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6",
+    "tedious": "^16.2.0",
     "typescript": "^5.1.6",
     "winston": "^3.10.0"
+  },
+  "build": {
+    "appId": "com.tommyg.cornynotes",
+    "productName": "Corny Notes",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "dist/main/backend/models/notesModel.js",
+      "!**/*.ts",
+      "!*.code-workspace",
+      "!LICENSE.md",
+      "!package.json",
+      "!package-lock.json",
+      "!src",
+      "!tsconfig.json",
+      "!tslint.json"
+    ],
+    "win": {
+      "target": "nsis"
+    }
   }
 }
