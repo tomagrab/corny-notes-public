@@ -16,8 +16,8 @@ const updateNote = (noteData: any) => {
   return window.api.invoke("updateNote", noteData);
 };
 
-const deleteNote = (id: string) => {
-  return window.api.invoke("deleteNote", id);
+const deleteNoteById = (id: string) => {
+  return window.api.invoke("deleteNoteById", Number(id));
 };
 
 export default {
@@ -25,5 +25,5 @@ export default {
   getnoteById,
   createNote,
   updateNote,
-  deleteNote,
+  deleteNoteById,
 };

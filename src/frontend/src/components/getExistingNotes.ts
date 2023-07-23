@@ -7,9 +7,7 @@ export async function getExistingNotes() {
   console.log(notesfromDB);
 
   // Set in descending order
-  notesfromDB.sort((a: any, b: any) => {
-    return b.dataValues.createdAt - a.dataValues.createdAt;
-  });
+  const notesfromDBASC = notesfromDB.reverse();
 
   // Get the notes display container
   const notes = document.getElementById("notes-display") as HTMLDivElement;
@@ -20,7 +18,7 @@ export async function getExistingNotes() {
   }
 
   // Create and append the notes to the display
-  notesfromDB.forEach((note: any) => {
+  notesfromDBASC.forEach((note: any) => {
     const noteElement = createNoteElement(note);
     notes.appendChild(noteElement);
   });
@@ -33,6 +31,27 @@ function createNoteElement(note: any) {
   noteDiv.setAttribute("draggable", "true");
 
   makeDraggable(noteDiv);
+
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("note__delete");
+  deleteButton.innerHTML = "&times;";
+  deleteButton.addEventListener("click", () => {
+    console.log(note.dataValues.id);
+    noteAPI.deleteNoteById(note.dataValues.id);
+    noteDiv.remove();
+  });
+
+  const noteCreated = document.createElement("p");
+  noteCreated.classList.add("note__created");
+  noteCreated.textContent = `Date: ${note.dataValues.createdAt.toLocaleDateString(
+    "en-US",
+    {
+      weekday: "short", // "Sun"
+      month: "2-digit", // "07"
+      day: "2-digit", // "23"
+      year: "numeric", // "2023"
+    }
+  )}`;
 
   const headerDiv = document.createElement("div");
   headerDiv.classList.add("note__header");
@@ -96,8 +115,25 @@ function createNoteElement(note: any) {
     bodyDiv.appendChild(sectionDiv);
   });
 
+  const noteUpdated = document.createElement("p");
+  noteUpdated.classList.add("note__updated");
+  noteUpdated.textContent = `Updated: ${note.dataValues.updatedAt.toLocaleTimeString(
+    "en-US",
+    {
+      hour: "2-digit", // "HH"
+      minute: "2-digit", // "MM"
+    }
+  )} ${note.dataValues.updatedAt.toLocaleDateString("en-US", {
+    month: "2-digit", // "MM"
+    day: "2-digit", // "DD"
+    year: "2-digit", // "YY"
+  })}`;
+
+  noteDiv.appendChild(noteCreated);
+  noteDiv.appendChild(deleteButton);
   noteDiv.appendChild(headerDiv);
   noteDiv.appendChild(bodyDiv);
+  noteDiv.appendChild(noteUpdated);
 
   return noteDiv;
 }

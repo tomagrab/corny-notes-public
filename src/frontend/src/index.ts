@@ -21,3 +21,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     enableDrop(sidebar);
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById(
+    "toggle-form"
+  ) as HTMLButtonElement;
+  const noteForm = document.getElementById("note-form") as HTMLFormElement;
+  const formContainer = document.getElementById(
+    "form-container"
+  ) as HTMLDivElement;
+
+  toggleButton.addEventListener("click", () => {
+    if (noteForm.classList.contains("hidden")) {
+      noteForm.classList.remove("hidden");
+      formContainer.classList.remove("collapsed");
+      toggleButton.textContent = "Collapse";
+    } else {
+      noteForm.classList.add("hidden");
+      formContainer.classList.add("collapsed");
+      toggleButton.textContent = "New Note";
+    }
+  });
+});

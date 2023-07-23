@@ -38,9 +38,24 @@ export function sendFormData() {
       .then((res) => {
         console.log(res);
         getExistingNotes();
+        clearFormFields();
       })
       .catch((err) => {
         console.log(err);
       });
   });
+}
+
+function clearFormFields() {
+  const title = document.getElementById("note-title") as HTMLInputElement;
+  const author = document.getElementById("note-author") as HTMLInputElement;
+  const cues = document.getElementById("cues") as HTMLInputElement;
+  const notes = document.getElementById("notes") as HTMLInputElement;
+  const summary = document.getElementById("summary") as HTMLInputElement;
+
+  title.value = "";
+  author.value = "";
+  cues.value = "";
+  notes.value = "";
+  summary.value = "";
 }

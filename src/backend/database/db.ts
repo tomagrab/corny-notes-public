@@ -1,15 +1,16 @@
 import { Sequelize } from "sequelize";
 import { logger } from "../../logger";
+import path from "path";
 
 export const db = new Sequelize({
   dialect: "sqlite",
-  storage: "./db.sqlite",
+  storage: path.join(__dirname, "../database/db.sqlite"),
 });
 
 db.authenticate()
   .then(() => {
     logger.info("Connection has been established successfully.");
-    return db.sync();
+    return db.sync({ force: true });
   })
   .then(() => {
     logger.info("All models were synchronized successfully.");

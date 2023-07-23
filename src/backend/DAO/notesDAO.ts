@@ -43,7 +43,10 @@ export class NotesDAO {
 
   public async deleteNoteById(id: number): Promise<void> {
     const note = await Note.findByPk(id);
+    console.log("Note:");
+    console.log(note);
     if (note) {
+      console.log(`Note ${id} deleted`);
       await note.destroy();
     } else {
       throw new Error("Note not found");

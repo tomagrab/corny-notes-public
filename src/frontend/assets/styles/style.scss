@@ -23,7 +23,7 @@
   // Layout
   display: flex;
   flex-direction: column;
-  min-height: 200px;
+  min-height: 150px;
   // Format
   // Style
 }
@@ -117,7 +117,14 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
+
+  // Style
+
+  /*   & > * {
+    // Layout
+    width: 100%;
+  } */
 }
 
 .note-form {
@@ -147,6 +154,7 @@ label {
   // Layout
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
 }
 
 .cues-container {
@@ -218,20 +226,36 @@ label {
   }
 }
 
+/*=================-| Scroll Bar |-=================*/
+
 /* This is for Chrome, Safari */
 ::-webkit-scrollbar {
-  width: 6px; /* Width of the scrollbar */
+  width: 5px; /* Width of the scrollbar */
+  margin-right: 0.25rem;
 }
 
 ::-webkit-scrollbar-track {
-  background: $dark-light; /* Color of the scroll thumb when hovering */
+  background: $dark; /* Color of the scroll thumb when hovering */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $dark-heavy; /* Color of the track */
+  background: $dark-light; /* Color of the track */
   border-radius: 20px; /* Roundness of the scroll thumb */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: $vel-orange; /* Color of the scroll thumb */
+#form-container {
+  transition: height 0.5s ease;
+}
+
+#form-container.collapsed {
+  height: 30px; /* or the height of your button */
+}
+
+#note-form {
+  transition: opacity 0.5s ease;
+}
+
+#note-form.hidden {
+  visibility: hidden;
+  opacity: 0;
 }

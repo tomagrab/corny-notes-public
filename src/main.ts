@@ -2,17 +2,6 @@ import { app, BrowserWindow } from "electron";
 import path from "path";
 import "./backend/Controllers/notesController";
 
-try {
-  require("electron-reloader")(module, {
-    debug: true,
-    watchRenderer: true,
-    ignore: [path.resolve(__dirname, "node_modules")],
-    electron: require(`${__dirname}/node_modules/electron`),
-    hardResetMethod: "exit",
-    logLevel: "info",
-  });
-} catch (_) {}
-
 let mainWindow: BrowserWindow | null;
 
 function createWindow() {

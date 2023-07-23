@@ -2,17 +2,64 @@
 
 .note {
   // Layout
+  position: relative;
   margin-top: 2rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
   // Format
   // Style
   border: 2px solid #3097b9;
+
+  & > *:not(:last-child) {
+    // Layout
+    margin-bottom: 0.5rem;
+    // Format
+    // Style
+  }
+}
+
+.note__delete {
+  // Layout
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  padding: 0;
+  // Format
+  font-size: 1.5rem;
+  // Style
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    // Layout
+    // Format
+    // Style
+    color: red;
+  }
+}
+
+.note__created,
+.note__updated {
+  // Layout
+  // Format
+  font-size: 0.75rem;
+  // Style
+  color: $dark-light;
+}
+
+.note__created {
+  // Layout
+  // Format
+  // Style
 }
 
 .note__header {
   // Layout
   margin-bottom: 0.5rem;
+  margin-right: 2rem;
   // Format
   // Style
 }
@@ -53,6 +100,23 @@
   // Format
   word-break: break-word;
   // Style
+}
+
+.note__title > span,
+.note__author > span,
+.note__cues-text,
+.note__notes-text,
+.note__summary-text {
+  // Layout
+  // Style
+  transition: outline 0.3s ease-in-out;
+
+  &:focus {
+    // Layout
+    // Format
+    // Style
+    outline: 2px solid $vellow;
+  }
 }
 
 .note__title {
