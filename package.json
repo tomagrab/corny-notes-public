@@ -15,7 +15,7 @@
     "watch": "npm run build && concurrently \"npm:watch-*\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "postinstall": "electron-rebuild"
+    "postinstall": "npm run build"
   },
   "author": "Tommy Grabowski",
   "license": "ISC",
@@ -25,7 +25,6 @@
     "css-loader": "^6.8.1",
     "electron": "^25.3.1",
     "electron-builder": "^24.4.0",
-    "electron-rebuild": "^3.2.9",
     "electron-reloader": "^1.2.3",
     "html-webpack-plugin": "^5.5.3",
     "node-sass": "^9.0.0",
