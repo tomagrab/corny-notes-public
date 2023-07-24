@@ -21,7 +21,7 @@ While the primary objective of this project is to provide an easy-to-use platfor
 1. **Clone the repository:**
 
 ```
-git clone https://github.com/yourusername/notetakingapp.git
+git clone https://github.com/tomagrab/corny-notes-public.git
 cd notetakingapp
 ```
 
