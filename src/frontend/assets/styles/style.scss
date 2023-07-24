@@ -95,7 +95,7 @@ label {
   border-radius: 0.25rem;
   cursor: pointer;
   background-color: $vel-blue;
-  transition: all $animation-speed ease-out;
+  transition: background-color $animation-speed ease-out;
 
   &:hover {
     background-color: $vel-light-blue;
@@ -138,7 +138,7 @@ label {
   display: flex;
   flex-direction: column;
   flex: 1;
-  transition: all $animation-speed ease-out;
+  transition: height $animation-speed ease-out;
 
   &,
   & * {
@@ -174,7 +174,8 @@ label {
     border: 2px solid $vellow;
     background-color: $dark;
     box-shadow: $drop-shadow-heavy;
-    transition: all $animation-speed ease-out;
+    transition: background-color $animation-speed ease-out,
+      color $animation-speed ease-out;
     color: $vel-orange;
 
     &:focus {
@@ -238,7 +239,7 @@ label {
 .notes,
 .summary {
   flex-grow: 1;
-  resize: vertical;
+  resize: none;
   border: 2px solid $vel-blue;
   @extend %form-field;
 }

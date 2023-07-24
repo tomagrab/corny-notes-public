@@ -6,6 +6,9 @@ export async function getExistingNotes() {
   console.log(notesfromDB);
 
   // Set in descending order
+  notesfromDB.sort((a: any, b: any) => {
+    return b.dataValues.createdAt - a.dataValues.createdAt;
+  });
 
   // Get the notes display container
   const notes = document.getElementById("notes-display") as HTMLDivElement;

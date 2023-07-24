@@ -2,7 +2,8 @@
 import noteAPI from "../api/noteAPI";
 import { getExistingNotes } from "./getExistingNotes";
 
-const getFormData = (): any => {
+function getFormData(): any {
+  const id = (document.getElementById("note-id") as HTMLInputElement).value;
   const title =
     (document.getElementById("note-title") as HTMLInputElement).value.trim() ||
     "Untitled";
@@ -20,10 +21,10 @@ const getFormData = (): any => {
     "No summary";
 
   if (
-    title === "Untitled" ||
-    author === " No one" ||
-    cues === "No cues" ||
-    notes === "No notes" ||
+    title === "Untitled" &&
+    author === " No one" &&
+    cues === "No cues" &&
+    notes === "No notes" &&
     summary === "No summary"
   ) {
     alert("Please write something!");
@@ -31,6 +32,7 @@ const getFormData = (): any => {
   }
 
   const formData = {
+    id: id,
     title: title,
     author: author,
     cues: cues,
@@ -39,7 +41,7 @@ const getFormData = (): any => {
   };
 
   return formData;
-};
+}
 
 export function sendFormData() {
   const form = document.getElementById("note-form") as HTMLFormElement;
