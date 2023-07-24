@@ -112,6 +112,7 @@ label {
   border: 2px solid $vel-orange;
   box-shadow: $drop-shadow-medium;
   align-self: center;
+  transition: border-radius $animation-speed ease-out;
 
   &:hover,
   &.toggled {

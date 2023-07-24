@@ -76,6 +76,7 @@ export function sendFormData() {
           console.log(err);
         });
     } else {
+      console.log(formData);
       noteAPI
         .createNote(formData)
         .then((res) => {

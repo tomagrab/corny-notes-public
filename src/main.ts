@@ -9,7 +9,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 800,
     width: 800,
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     icon: path.join(__dirname, "./frontend/assets/icons/app-icon.ico"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),

@@ -120,9 +120,9 @@ function createNoteElement(note: any) {
     const sectionTextP = document.createElement("p");
     sectionTextP.classList.add(`note__${section}-text`);
     sectionTextP.contentEditable = "true";
-    sectionTextP.textContent = note.dataValues[section];
+    sectionTextP.innerHTML = note.dataValues[section].replace(/\n/g, "<br />");
     sectionTextP.addEventListener("input", () => {
-      note.dataValues[section] = sectionTextP.textContent;
+      note.dataValues[section] = sectionTextP.innerHTML.replace(/<br>/g, "\n");
       noteAPI.updateNote(note.dataValues);
     });
 
