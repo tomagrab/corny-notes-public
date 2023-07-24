@@ -1,70 +1,72 @@
-# Note Taking App (Electron, TypeScript, Sequelize, SQLite)
+<h1 align="center">Corny Notes</h1>
+<h3 align="center">Built with Electron, TypeScript, Sequelize, and SQLite</h3>
 
-## Description
+![Note Taking App Screenshot](./src/frontend/assets/images/corny-notes-0.8-ss.png)
 
-This project is a simple and lightweight desktop application for note-taking. The primary objective of this application is to provide a straightforward and intuitive interface for users to quickly jot down and manage their notes.
+## 📚 Description
 
-However, the secondary, and arguably more critical goal of this project is to serve as a learning and practice tool. As such, this application is intentionally over-engineered, using a robust technology stack that includes Electron, TypeScript, Sequelize, and SQLite. This is in an effort to deepen understanding and gain practical experience with these technologies, making this project a valuable exercise in learning, as much as it is about note-taking.
+A simple, lightweight desktop application designed for efficient and intuitive note-taking.
 
-## Technologies
+While the primary objective of this project is to provide an easy-to-use platform for users to manage their notes, it also serves as a valuable learning tool. It deliberately incorporates a robust technology stack - Electron, TypeScript, Sequelize, SQLite - with the goal of deepening understanding and gaining hands-on experience with these technologies.
 
-- Electron: Used to build the desktop application
-- TypeScript: The primary language for the project, providing static types
-- Sequelize: The ORM to manage SQLite transactions
-- SQLite: The database to store all data locally
+## 🛠️ Technologies
 
-## Setup
+- **Electron**: For building the desktop application
+- **TypeScript**: The main language of the project, offering static types
+- **Sequelize**: The ORM for managing SQLite transactions
+- **SQLite**: The database to store all data locally
 
-### Clone the repository:
+## 🚀 Setup
+
+1. **Clone the repository:**
 
 ```
 git clone https://github.com/yourusername/notetakingapp.git
 cd notetakingapp
 ```
 
-### Install dependencies:
+2. **Install dependencies**
 
 ```
 npm install
 ```
 
-Run the app:
+3. **Run the app**
 
 ```
 npm run start
 ```
 
-## Live edit
+## 🎨 Live Edit
 
 ```
 npm run watch
 ```
 
-## Build app
+## 📦 Build App
 
 ```
 npm run build
 ```
 
-## Generate App (Windows Only)
+## 🖥️ Generate App (Windows Only)
 
 ```
 npm run dist
 ```
 
-## Contribution
+## 🖋️ Contribution
 
 This is an open-source project. Any contributions or suggestions are welcome.
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License.
 
-## Project Structure
+## 🏗️ Project Structure
 
 ```
 cornell-notes (root)
-├── .env
 ├── .gitignore
 ├── .sequelizerc
 ├── filename.txt
