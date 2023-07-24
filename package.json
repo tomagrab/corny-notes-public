@@ -1,5 +1,5 @@
 {
-  "name": "Corny Notes",
+  "name": "CornyNotes",
   "version": "1.0.0",
   "description": "A note taking app in the style of Cornell",
   "main": "./dist/main.js",

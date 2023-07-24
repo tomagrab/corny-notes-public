@@ -18,6 +18,8 @@ function createWindow() {
     },
   });
 
+  mainWindow.title = "Corny Notes";
+
   mainWindow.loadFile(path.join(__dirname, "frontend/index.html"));
 
   mainWindow.on("closed", () => {
