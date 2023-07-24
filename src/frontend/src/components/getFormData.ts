@@ -3,28 +3,42 @@ import noteAPI from "../api/noteAPI";
 import { getExistingNotes } from "./getExistingNotes";
 
 const getFormData = (): any => {
-  const title = document.getElementById("note-title") as HTMLInputElement;
-  const author = document.getElementById("note-author") as HTMLInputElement;
-  const cues = document.getElementById("cues") as HTMLInputElement;
-  const notes = document.getElementById("notes") as HTMLInputElement;
-  const summary = document.getElementById("summary") as HTMLInputElement;
-  const noteID = document.getElementById("note-id") as HTMLInputElement;
+  const title =
+    (document.getElementById("note-title") as HTMLInputElement).value.trim() ||
+    "Untitled";
+  const author =
+    (document.getElementById("note-author") as HTMLInputElement).value.trim() ||
+    "No one";
+  const cues =
+    (document.getElementById("cues") as HTMLTextAreaElement).value.trim() ||
+    "No cues";
+  const notes =
+    (document.getElementById("notes") as HTMLTextAreaElement).value.trim() ||
+    "No notes";
+  const summary =
+    (document.getElementById("summary") as HTMLTextAreaElement).value.trim() ||
+    "No summary";
 
-  const titleValue = title.value;
-  const authorValue = author.value;
-  const cuesValue = cues.value;
-  const notesValue = notes.value;
-  const summaryValue = summary.value;
-  const noteIDValue = noteID.value;
+  if (
+    title === "Untitled" ||
+    author === " No one" ||
+    cues === "No cues" ||
+    notes === "No notes" ||
+    summary === "No summary"
+  ) {
+    alert("Please write something!");
+    return;
+  }
 
-  return {
-    title: titleValue,
-    author: authorValue,
-    cues: cuesValue,
-    notes: notesValue,
-    summary: summaryValue,
-    id: noteIDValue,
+  const formData = {
+    title: title,
+    author: author,
+    cues: cues,
+    notes: notes,
+    summary: summary,
   };
+
+  return formData;
 };
 
 export function sendFormData() {

@@ -36,6 +36,10 @@ label {
   margin-bottom: 0.5rem;
 }
 
+.resizer {
+  background-color: $vel-blue;
+}
+
 .layout {
   display: flex;
   min-height: 100vh;
@@ -168,12 +172,14 @@ label {
   & input,
   & textarea {
     border: 2px solid $vellow;
-    background-color: $dark-light;
+    background-color: $dark;
     box-shadow: $drop-shadow-heavy;
     transition: all $animation-speed ease-out;
+    color: $vel-orange;
 
     &:focus {
       background-color: $light;
+      color: $dark;
     }
   }
 
@@ -249,4 +255,8 @@ label {
 ::-webkit-scrollbar-thumb {
   background: $dark-light;
   border-radius: 20px;
+}
+
+.no-transition {
+  transition: none;
 }

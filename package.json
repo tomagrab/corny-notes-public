@@ -73,7 +73,7 @@
     ],
     "win": {
       "target": "nsis",
-      "icon": "./build/icons/app-icon.ico"
+      "icon": "./build/icons/app-icon-3.0.ico"
     }
   }
 }

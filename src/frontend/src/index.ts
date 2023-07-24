@@ -1,6 +1,6 @@
 import "../assets/styles/style.scss";
 
-import { sidebarToggle } from "./components/sidebar";
+import { sidebarToggle, dragSidebar } from "./components/sidebar";
 import { formToggle } from "./components/form";
 import { sendFormData } from "./components/getFormData";
 import { getExistingNotes } from "./components/getExistingNotes";
@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   sidebarToggle();
   formToggle();
   sendFormData();
+  dragSidebar();
   await getExistingNotes();
 
   const noteArea = document.getElementById("note-area");
