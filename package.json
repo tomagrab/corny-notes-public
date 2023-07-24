@@ -2,19 +2,20 @@
   "name": "cornell-notes",
   "version": "1.0.0",
   "description": "A note taking app in the style of Cornell",
-  "main": "./dist/main/main.js",
+  "main": "./dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-main": "tsc --project tsconfig.main.json",
-    "build-renderer": "webpack",
+    "build-main": "webpack --config webpack.main.config.js",
+    "build-renderer": "webpack --config webpack.renderer.config.js",
     "build-config": "tsc --project tsconfig.config.json",
     "build": "npm run build-main && npm run build-renderer && npm run build-config",
-    "start": "electron ./dist/main/main.js",
+    "start": "electron ./dist/main.js",
     "watch-main": "nodemon --watch src/backend --exec \"npm run build-main && npm start\"",
-    "watch-renderer": "webpack --watch",
+    "watch-renderer": "webpack --watch --config webpack.renderer.config.js",
     "watch": "npm run build && concurrently \"npm:watch-*\"",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "postinstall": "electron-rebuild"
   },
   "author": "Tommy Grabowski",
   "license": "ISC",
@@ -24,16 +25,19 @@
     "css-loader": "^6.8.1",
     "electron": "^25.3.1",
     "electron-builder": "^24.4.0",
+    "electron-rebuild": "^3.2.9",
     "electron-reloader": "^1.2.3",
     "html-webpack-plugin": "^5.5.3",
     "node-sass": "^9.0.0",
     "nodemon": "^3.0.1",
+    "pg-connection-string": "^2.6.1",
     "sass-loader": "^13.3.2",
     "sequelize-cli": "^6.6.1",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.4.4",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
@@ -51,10 +55,13 @@
     "directories": {
       "output": "build"
     },
+    "asarUnpack": [
+      "./dist/main/backend/models/**",
+      "**/node_modules/sqlite3/**/*"
+    ],
     "files": [
       "dist/**/*",
       "node_modules/**/*",
-      "dist/main/backend/models/notesModel.js",
       "!**/*.ts",
       "!*.code-workspace",
       "!LICENSE.md",
@@ -65,7 +72,8 @@
       "!tslint.json"
     ],
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "./build/icons/app-icon.ico"
     }
   }
 }

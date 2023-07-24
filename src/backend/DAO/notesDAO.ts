@@ -1,11 +1,14 @@
+import path from "path";
+import { app } from "electron";
+
 import { Note } from "../Models/notesModel";
 
 export class NotesDAO {
-  public async getAllNotes(): Promise<Note[]> {
+  public async getAllNotes(): Promise<any> {
     return Note.findAll();
   }
 
-  public async getNoteById(id: number): Promise<Note | null> {
+  public async getNoteById(id: number): Promise<any | null> {
     return Note.findByPk(id);
   }
 
@@ -15,7 +18,7 @@ export class NotesDAO {
     cues: string,
     notes: string,
     summary: string
-  ): Promise<Note> {
+  ): Promise<any> {
     return Note.create({ title, author, cues, notes, summary });
   }
 
@@ -26,7 +29,7 @@ export class NotesDAO {
     cues: string,
     notes: string,
     summary: string
-  ): Promise<Note> {
+  ): Promise<any> {
     const note = await Note.findByPk(id);
     if (note) {
       note.title = title;

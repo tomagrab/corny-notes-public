@@ -1,5 +1,6 @@
 import { app, BrowserWindow } from "electron";
 import path from "path";
+
 import "./backend/Controllers/notesController";
 
 let mainWindow: BrowserWindow | null;
@@ -8,6 +9,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    icon: path.join(__dirname, "./frontend/assets/icons/app-icon.ico"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       nodeIntegration: false,
@@ -15,7 +17,7 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadFile(path.join(__dirname, "../frontend/index.html"));
+  mainWindow.loadFile(path.join(__dirname, "frontend/index.html"));
 
   mainWindow.on("closed", () => {
     mainWindow = null;

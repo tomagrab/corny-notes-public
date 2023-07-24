@@ -10,6 +10,7 @@
   // Style
   border: 2px solid #3097b9;
 
+  & > *:not(.note__body),
   & > *:not(:last-child) {
     // Layout
     margin-bottom: 0.5rem;
@@ -19,10 +20,41 @@
 }
 
 .note__delete {
-  // Layout
-  position: absolute;
+  // layout
   top: 0.5rem;
   right: 0.5rem;
+  // Format
+  // Style
+
+  &:hover {
+    // Layout
+    // Format
+    // Style
+    color: red;
+  }
+}
+
+.note__update {
+  // Layout
+  bottom: 0.5rem;
+  right: 0.5rem;
+  // Format
+  // Style
+  background: transparent;
+
+  &:hover {
+    // Layout
+    // Format
+    // Style
+    color: $vellow;
+  }
+}
+
+.note__delete,
+.note__update {
+  // Layout
+  position: absolute;
+
   height: 1.5rem;
   width: 1.5rem;
   padding: 0;
@@ -32,13 +64,6 @@
   outline: none;
   border: none;
   cursor: pointer;
-
-  &:hover {
-    // Layout
-    // Format
-    // Style
-    color: red;
-  }
 }
 
 .note__created,
@@ -68,6 +93,7 @@
   // Layout
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 2rem;
   // Format
   // Style
 }

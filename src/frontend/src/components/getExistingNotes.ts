@@ -1,5 +1,4 @@
 import noteAPI from "../api/noteAPI";
-import { makeDraggable, enableDrop } from "./dragAndDrop";
 
 export async function getExistingNotes() {
   // Get existing notes
@@ -7,7 +6,6 @@ export async function getExistingNotes() {
   console.log(notesfromDB);
 
   // Set in descending order
-  const notesfromDBASC = notesfromDB.reverse();
 
   // Get the notes display container
   const notes = document.getElementById("notes-display") as HTMLDivElement;
@@ -18,7 +16,7 @@ export async function getExistingNotes() {
   }
 
   // Create and append the notes to the display
-  notesfromDBASC.forEach((note: any) => {
+  notesfromDB.forEach((note: any) => {
     const noteElement = createNoteElement(note);
     notes.appendChild(noteElement);
   });
@@ -28,9 +26,6 @@ function createNoteElement(note: any) {
   const noteDiv = document.createElement("div");
   noteDiv.id = `note-${note.dataValues.id}`;
   noteDiv.classList.add("note");
-  noteDiv.setAttribute("draggable", "true");
-
-  makeDraggable(noteDiv);
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("note__delete");
@@ -39,6 +34,25 @@ function createNoteElement(note: any) {
     console.log(note.dataValues.id);
     noteAPI.deleteNoteById(note.dataValues.id);
     noteDiv.remove();
+  });
+
+  const updateButton = document.createElement("button");
+  updateButton.classList.add("note__update");
+  updateButton.innerHTML = "&#9998;";
+  updateButton.addEventListener("click", () => {
+    const title = document.getElementById("note-title") as HTMLInputElement;
+    const author = document.getElementById("note-author") as HTMLInputElement;
+    const cues = document.getElementById("cues") as HTMLInputElement;
+    const notes = document.getElementById("notes") as HTMLInputElement;
+    const summary = document.getElementById("summary") as HTMLInputElement;
+    const noteID = document.getElementById("note-id") as HTMLInputElement;
+
+    title.value = note.dataValues.title;
+    author.value = note.dataValues.author;
+    cues.value = note.dataValues.cues;
+    notes.value = note.dataValues.notes;
+    summary.value = note.dataValues.summary;
+    noteID.value = note.dataValues.id;
   });
 
   const noteCreated = document.createElement("p");
@@ -133,6 +147,7 @@ function createNoteElement(note: any) {
   noteDiv.appendChild(deleteButton);
   noteDiv.appendChild(headerDiv);
   noteDiv.appendChild(bodyDiv);
+  noteDiv.appendChild(updateButton);
   noteDiv.appendChild(noteUpdated);
 
   return noteDiv;

@@ -2,81 +2,41 @@
   "./variables";
 
 %form-field {
-  // Layout
   min-height: 1.25rem;
   padding: 0.5rem 0.8rem;
-  // Format
   font-size: $font-size;
-  // Style
   outline: none;
   transition: border $animation-speed ease-out;
 
   &:not(.post-button):focus {
-    // Layout
     z-index: 10;
-    // Style
     border: 2px solid $vel-orange;
   }
 }
 
 %container {
-  // Layout
   display: flex;
   flex-direction: column;
-  min-height: 150px;
-  // Format
-  // Style
 }
 
 html,
 body {
-  // Format
   font-size: $font-size;
 }
 
 body,
 body * {
-  // Format
   font-family: roboto, sans-serif;
   font-weight: $font-weight;
-  // Style
   color: $vel-blue;
   background-color: $dark;
 }
 
 label {
-  // Layout
   margin-bottom: 0.5rem;
 }
 
-.toggle-sidebar {
-  // Layout
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  height: 2rem;
-  width: 2rem;
-  padding: 0;
-  // Format
-  font-size: $font-size;
-  // Style
-  border: 2px solid $vel-orange;
-  border-radius: 0.25rem;
-  background-color: $vel-blue;
-  cursor: pointer;
-  transition: all $animation-speed ease-out;
-  box-shadow: $drop-shadow-medium;
-
-  &:hover,
-  &.toggled {
-    border: 2px solid $vel-orange;
-    border-radius: 50%;
-    background-color: $vel-light-blue;
-  }
-}
-
 .layout {
-  // Layout
   display: flex;
   min-height: 100vh;
   height: 100vh;
@@ -86,109 +46,181 @@ label {
 
 .sidebar,
 .note-area {
-  // Layout
   padding: 1rem;
   height: calc(100vh - 2rem);
-  // Style
   overflow-y: auto;
 }
 
 .sidebar {
-  // Layout
   width: $sidebar-width;
   padding-top: calc(2rem + 4px);
-  // Style
-  border-right: 3px solid $vel-blue;
   transition: $animation-speed ease-out;
 
   &.collapsed {
-    // Layout
     width: 0;
     padding: 0;
-    // Style
     border-right: none;
     overflow: hidden;
+  }
+
+  &.collapsed ~ .note-area {
+    margin-left: 4rem;
   }
 }
 
 .note-area {
-  // Layout
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  border-left: 3px solid $vel-blue;
 
-  // Style
-
-  /*   & > * {
-    // Layout
-    width: 100%;
-  } */
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }
 
-.note-form {
-  // Layout
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  max-width: 25rem;
-  // Style
-  border: 3px solid $vel-blue;
+.toggle-sidebar,
+.toggle-form,
+.post-button {
+  font-size: $font-size;
+  font-weight: 600;
+  color: $light;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-color: $vel-blue;
+  transition: all $animation-speed ease-out;
 
-  &,
-  & > * {
-    border-radius: 0.325rem;
+  &:hover {
+    background-color: $vel-light-blue;
   }
+}
+
+.toggle-sidebar {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  border: 2px solid $vel-orange;
+  box-shadow: $drop-shadow-medium;
+  align-self: center;
+
+  &:hover,
+  &.toggled {
+    border: 2px solid $vel-orange;
+    border-radius: 50%;
+  }
+}
+
+.toggle-form {
+  padding: 1rem;
+  font-size: 1.5rem;
+  outline: none;
 }
 
 .note-form,
 .note-content {
   & > *:not(:last-child):not(label) {
-    // Layout
     margin-bottom: 1rem;
   }
 }
 
+.note-form {
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: all $animation-speed ease-out;
+
+  &,
+  & * {
+    border-radius: 0.325rem;
+    color: $dark;
+    background-color: $vel-blue;
+  }
+
+  & > *:nth-child(2) {
+    margin-top: 1rem;
+  }
+
+  & *:not(:nth-child(n - 2)) {
+    margin: 0 1rem;
+  }
+
+  & *:not(input),
+  & *:not(textarea) {
+    font-weight: 600;
+  }
+
+  & label,
+  & input {
+    margin: 0 1rem;
+  }
+
+  & label {
+    margin-bottom: 0.5rem;
+  }
+
+  & input,
+  & textarea {
+    border: 2px solid $vellow;
+    background-color: $dark-light;
+    box-shadow: $drop-shadow-heavy;
+    transition: all $animation-speed ease-out;
+
+    &:focus {
+      background-color: $light;
+    }
+  }
+
+  & > div > div > label {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &.collapsed {
+    flex: 0;
+    overflow: hidden;
+    border: 0;
+  }
+}
+
+.post-button {
+  @extend %form-field;
+  color: $light;
+}
+
 .note-content {
-  // Layout
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.cues-container,
+.summary-container {
+  justify-self: stretch;
 }
 
 .cues-container {
-  // Layout
   grid-column: span 1;
   @extend %container;
 }
 
 .notes-container {
-  // Layout
   grid-column: span 2;
   @extend %container;
 }
 
 .summary-container {
-  // Layout
   grid-column: span 3;
   @extend %container;
-}
-
-.summary-container,
-.summary {
-  // Layout
   min-height: 1.5rem;
-}
-
-.note-title,
-.note-author,
-.cues,
-.notes,
-.summary,
-.post-button {
-  // Style
-  border: 2px solid $vel-blue;
 }
 
 .note-title,
@@ -199,63 +231,22 @@ label {
 .cues,
 .notes,
 .summary {
-  // Layout
   flex-grow: 1;
-  // Style
   resize: vertical;
+  border: 2px solid $vel-blue;
   @extend %form-field;
 }
 
-.post-button {
-  // Layout
-  align-self: center;
-  @extend %form-field;
-  // Format
-  font-weight: 600;
-  // Style
-  color: $light;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  background-color: $vel-blue;
-  transition: all $animation-speed ease-out;
-
-  &:hover {
-    // Style
-    background-color: $vel-light-blue;
-  }
-}
-
-/*=================-| Scroll Bar |-=================*/
-
-/* This is for Chrome, Safari */
 ::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
+  width: 5px;
   margin-right: 0.25rem;
 }
 
 ::-webkit-scrollbar-track {
-  background: $dark; /* Color of the scroll thumb when hovering */
+  background: $dark;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $dark-light; /* Color of the track */
-  border-radius: 20px; /* Roundness of the scroll thumb */
-}
-
-#form-container {
-  transition: height 0.5s ease;
-}
-
-#form-container.collapsed {
-  height: 30px; /* or the height of your button */
-}
-
-#note-form {
-  transition: opacity 0.5s ease;
-}
-
-#note-form.hidden {
-  visibility: hidden;
-  opacity: 0;
+  background: $dark-light;
+  border-radius: 20px;
 }
